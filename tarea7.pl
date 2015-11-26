@@ -61,7 +61,7 @@ internos(_, []).
 
 %DECIMO
 
-balanceado(N, a(x, I, D)) :- N>1, 0 is N mod 2, !, N1 is N//2, N2 is N1-1, ((balanceado(N1, I), balanceado(N2, D); balanceado(N2, I), balanceado(N1, D))).
+balanceado(N, a(x, I, D)) :- N>1, 0 is N mod 2, !, N2 is N//2, N1 is N2-1, ((balanceado(N1, I), balanceado(N2, D); balanceado(N2, I), balanceado(N1, D))).
 balanceado(N, a(x, I, D)) :- N>1, !, N1 is N//2, balanceado(N1, I), balanceado(N1, D).
 balanceado(1, a(x,nil,nil)).
 balanceado(0, nil).
